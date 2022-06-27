@@ -2,7 +2,7 @@ import React from "react";
 import "./cards.css"
 
 const Cards = ({ video }) => {
-    const { id, name, description, image, playTime } = video;
+    const { name, description, image, playTime } = video;
 
     return(
         <div className="br2 ba dark-gray b--black-10 mv4 w-100 w-50-s w-25-l mw5 center">

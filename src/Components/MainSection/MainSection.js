@@ -5,10 +5,10 @@ import Cards from "./SectionStructure/Cards";
 const MainSection = ({videoAssets}) => {
     
     return(
-            <div className="flex flex-wrap items-center justify-around bt bb">
+            <div className="flex flex-wrap justify-around bt bb">
                 {videoAssets.map((video) => 
-                    <Link key={video.id} to={`/videos/${video.id}`}>
-                        <Cards video={video}/>
+                    <Link style={{textDecoration: 'none'}} key={video.id} to={`/videos/${video.id}`}>
+                        <Cards key={video.id} video={video}/>
                     </Link>
                 )}
             </div>

@@ -66,8 +66,8 @@ export const assets = [
   },
   {
     id:4,
-    name: 'Beauty Nebula',
-    description: `Our Universe's Artistic Expression`,
+    name: 'Into The Depths Of The Universe',
+    description: `Expanding Our Knowledge of the Universe`,
     tag:'nebula',
     location: '/assets/Atmos_9.mp4',
     image: '/assets/particle-dancing-1.jpg',
@@ -85,8 +85,8 @@ export const assets = [
   },
   {
     id:5,
-    name: 'Beauty Nebula',
-    description: `Our Universe's Artistic Expression`,
+    name: 'Dancing Stars',
+    description: `Beautiful Patterns Of Our Marvelous Galaxy`,
     tag:'nebula',
     location: '/assets/Atmos_9.mp4',
     image: '/assets/particle-dancing-2.jpg',
@@ -104,8 +104,8 @@ export const assets = [
   },
   {
     id:6,
-    name: 'Beauty Nebula',
-    description: `Our Universe's Artistic Expression`,
+    name: `Milky Way's Sights`,
+    description: `Best Of Our Amazing Galaxy`,
     tag:'nebula',
     location: '/assets/Atmos_9.mp4',
     image: '/assets/particle-dancing-3.jpg',
@@ -139,7 +139,6 @@ function App() {
       </Router>
       <Footer/>
     </React.Fragment>
-
   );
 }
 

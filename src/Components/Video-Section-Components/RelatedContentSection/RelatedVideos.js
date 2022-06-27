@@ -1,6 +1,7 @@
 import React from "react";
 import Cards from "../../MainSection/SectionStructure/Cards";
 import { assets } from "../../../App";
+import { Link } from "react-router-dom";
 
 const RelatedVideos = ({tag}) => {
     const relatedArray = assets.filter(element => element.tag === tag);
@@ -9,7 +10,11 @@ const RelatedVideos = ({tag}) => {
             <span className="w-25 pa4 f2 ma4 flex-column-ns">
                 Related Videos:
             </span>
-            {relatedArray.map((video) => <Cards key={video.id} video={video}/>)}
+            {relatedArray.map((video) => 
+                <Link style={{textDecoration: 'none'}} key={video.id} to={`/videos/${video.id}`}>
+                    <Cards key={video.id} video={video}/>
+                </Link>
+            )}
         </div>
     )
 }
