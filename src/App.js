@@ -1,10 +1,16 @@
 import './App.css';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from './Components/MainSection/SectionStructure/Header';
 import Footer from './Components/MainSection/SectionStructure/Footer'; 
 import MainSection from './Components/MainSection/MainSection';
 import CompletePlayer from './Components/Video-Section-Components/CompletePlayer';
-import React from 'react';
+import SignUp from './Components/Authentication/SignUp';
+import  Container  from 'react-bootstrap/Container';
+import { AuthProvider } from './Components/contexts/AuthContext';
+import Login from './Components/Authentication/Login';
+import PrivateRoute from './Components/PrivateRoute';
+
 
 export const assets = [
   {
@@ -124,21 +130,33 @@ export const assets = [
 ]
 
 function App() {
-  return (
-    <React.Fragment>
-      <Header text={'SpaceVids!'}/>
-      <Router>
-        <Switch>
-          <Route exact path='/'>
-              <MainSection videoAssets={assets}/>
-          </Route>
-          <Route  path='/videos/:id'>
-              <CompletePlayer videos={assets}/>
-          </Route>
-        </Switch>
-      </Router>
-      <Footer/>
-    </React.Fragment>
+   return (
+     <React.Fragment>
+       <Header text={'SpaceVids!'}/>
+       <Router>
+        <AuthProvider>
+          <Switch>
+            <PrivateRoute exact path='/' component={MainSection}>
+                <MainSection videoAssets={assets}/>
+            </PrivateRoute>
+            <PrivateRoute path='/videos/:id'>
+                <CompletePlayer videos={assets}/>
+            </PrivateRoute>
+            <Route path='/signup'>
+                <Container className="d-flex align-items-center justify-content-center bb bt" style={{ minHeight: "100vh" }}>
+                  <SignUp/>
+                </Container>
+            </Route>
+            <Route path='/login'>
+                <Container className="d-flex align-items-center justify-content-center bb bt" style={{ minHeight: "100vh" }}>
+                  <Login/>
+                </Container>
+            </Route>
+          </Switch>
+         </AuthProvider>
+       </Router>
+       <Footer/>
+     </React.Fragment>
   );
 }
 

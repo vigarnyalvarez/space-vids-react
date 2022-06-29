@@ -6,7 +6,6 @@ import { useParams } from 'react-router-dom'
 
 
 const CompletePlayer = ({videos}) => {
-    
     const {id} = useParams();
     const video = videos.find(element => `${element.id}` === id)
     const { name, tag, location, comments } = video;
