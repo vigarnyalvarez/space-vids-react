@@ -1,6 +1,6 @@
 # #SpaceVids React App!
 
-Small project using Router, Google OAuth, tachyons and react bootsrap for styles and a GraphQl
+Small project using Router, Firebase Auth, tachyons and react bootsrap for styles...
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
