@@ -3,11 +3,11 @@ import VideoPane from "./VideoSection/VideoPane";
 import CommentSection from "./CommentSection/CommentSection";
 import RelatedVideos from "./RelatedContentSection/RelatedVideos";
 import { useParams } from 'react-router-dom'
+import { assets } from "../../App";
 
-
-const CompletePlayer = ({videos}) => {
+const CompletePlayer = () => {
     const {id} = useParams();
-    const video = videos.find(element => `${element.id}` === id)
+    const video = assets.find(element => `${element.id}` === id)
     const { name, tag, location, comments } = video;
     return(
         <React.Fragment>
