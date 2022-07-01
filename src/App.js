@@ -131,11 +131,11 @@ function App() {
 
    return (
     <>
-      <Header text={'SpaceVids!'}/>
         <Router>
-          <AuthProvider>
-            <Switch>
+        <AuthProvider>
+          <Switch>
               <Route exact path="/">
+                <Header/>
                 <Login />
               </Route>
               <PrivateRoute path="/main">
@@ -145,6 +145,7 @@ function App() {
                 <CompletePlayer/>
               </PrivateRoute> 
               <Route path="/signup">
+                <Header/>
                 <SignUp/>
               </Route>
             </Switch>

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useAuth } from "../../../contexts/AuthContext";
 import cn from "classnames";
 import "./comment-styles.css";
 
@@ -7,6 +8,7 @@ const INITIAL_HEIGHT = 46;
 const CommentBox = ({commentAction}) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [commentValue, setCommentValue] = useState("");
+  const { currentUser } = useAuth();
 
   const outerHeight = useRef(INITIAL_HEIGHT);
   const textRef = useRef(null);
@@ -28,11 +30,15 @@ const CommentBox = ({commentAction}) => {
     setIsExpanded(false);
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     console.log(commentValue)
-    commentAction('test',commentValue)
-    setCommentValue("")
+    try {
+      commentAction(currentUser.email,commentValue)
+      setCommentValue("")
+    } catch {
+      console.log('error')
+    }
   };
 
   const DynamicHeightField = (element, value) => {
@@ -66,7 +72,7 @@ const CommentBox = ({commentAction}) => {
               src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/df/df7789f313571604c0e4fb82154f7ee93d9989c6.jpg"
               alt="User avatar"
             />
-            <span>User Name</span>
+            <span>{currentUser.email}</span>
           </div>
         </div>
         <label htmlFor="comment">What are your thoughts?</label>

@@ -6,6 +6,7 @@ import CommentView from "./CommentView/CommentView";
 
 
 
+
 const CommentSection = ({commentArray}) => {
     const [comments, setComments] = useState(commentArray)
     const [open, setOpen] = useState(true);
@@ -13,7 +14,6 @@ const CommentSection = ({commentArray}) => {
     const addComment = (user, comment) => {
         const commentsToModify = [...comments, {user: user, comment: comment}];
         setComments(commentsToModify);
-        console.log(comments);
     }
 
     return(

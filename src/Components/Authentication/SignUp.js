@@ -16,9 +16,14 @@ const SignUp = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        if(passwordRef.current.value.length < 6){
+            return setError('Password should contain at least 6 characters')
+        }
+
         if(passwordRef.current.value !== passwordConfirmRef.current.value){
             return setError('Passwords Do Not Match');
         }
+
 
         try {
             setError('');
@@ -32,7 +37,7 @@ const SignUp = () => {
     }
 
     return (
-        <Container className="d-flex align-items-center justify-content-center bb bt" style={{ minHeight: "100vh" }}>
+        <Container className="d-flex align-items-center justify-content-center bb bt" style={{ minHeight: "65vh" }}>
             <div className="w-100" style={{ maxWidth: "400px" }}>
                 <Card>
                     <Card.Body>
