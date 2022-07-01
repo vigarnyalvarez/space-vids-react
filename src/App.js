@@ -132,24 +132,24 @@ function App() {
    return (
     <>
       <Header text={'SpaceVids!'}/>
-        <AuthProvider>
-          <Router>
+        <Router>
+          <AuthProvider>
             <Switch>
-            <Route exact path="/">
-              <Login />
-            </Route>
-            <Route to="/signup">
-              <SignUp/>
-            </Route>
-            <PrivateRoute to="/main">
-              <MainSection/>
-            </PrivateRoute>
-            <PrivateRoute path='/videos/:id'>
-              <CompletePlayer/>
-            </PrivateRoute> 
+              <Route exact path="/">
+                <Login />
+              </Route>
+              <PrivateRoute path="/main">
+                <MainSection/>
+              </PrivateRoute>
+              <PrivateRoute path='/videos/:id'>
+                <CompletePlayer/>
+              </PrivateRoute> 
+              <Route path="/signup">
+                <SignUp/>
+              </Route>
             </Switch>
-          </Router>
-        </AuthProvider>
+          </AuthProvider>
+        </Router> 
       <Footer/>
     </>
   );

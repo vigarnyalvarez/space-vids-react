@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react"
 import { Form, Button, Card, Alert, Container } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-import LoggedRoute from "../LoggedRoute";
 
 const Login = ({validate}) => {
 
@@ -25,7 +24,6 @@ const Login = ({validate}) => {
             setLoading(true);
             await login(emailRef.current.value, passwordRef.current.value);
             history.push("/main");
-            return(<LoggedRoute></LoggedRoute>)
         } catch {
             setError('Failed To Login. Please, check your credentials or Register')
             setLoading(false);

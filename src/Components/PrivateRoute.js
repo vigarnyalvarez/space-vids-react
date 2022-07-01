@@ -5,9 +5,7 @@ import { useAuth } from "./contexts/AuthContext";
 const PrivateRoute = ({ children, ...rest }) => {
 
     const {currentUser} = useAuth();
-    if(!currentUser){
-        console.log('OJO')
-    }
+
     return (
         <Route {...rest} render={({ location }) =>
             currentUser ? (children) : ( <Redirect to={{pathname: "/"}}/>)
